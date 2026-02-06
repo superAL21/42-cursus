@@ -5,7 +5,7 @@ FLAGS = -Wall -Werror -Wextra
 AR = ar
 ARFLAGS = rcs
 
-SRCS = 
+SRCS = ft_print_num.c ft_print_utils.c ft_printf.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -23,6 +23,6 @@ clean:
 fclean: clean
 		rm -f $(NAME)
 
-re: fclenan all
+re: fclean all
 
 .PHONY: clean fclean re all
