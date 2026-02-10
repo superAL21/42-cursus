@@ -6,12 +6,10 @@
 /*   By: lajen-li <lajen-li@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 15:05:18 by lajen-li          #+#    #+#             */
-/*   Updated: 2026/02/06 15:45:30 by lajen-li         ###   ########.fr       */
+/*   Updated: 2026/02/10 12:39:44 by lajen-li         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdarg.h>
 #include "ft_printf.h"
 
 int	ft_putchar_int(char c)
@@ -33,16 +31,4 @@ int	ft_putstr_int(char *s)
 		i++;
 	}
 	return (i);
-}
-
-int	ft_strlen(char *s)
-{
-	int	count;
-
-	while (*s)
-	{
-		count++;
-		s++;
-	}
-	return (count);
 }

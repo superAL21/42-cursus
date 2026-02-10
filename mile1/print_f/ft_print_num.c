@@ -6,12 +6,10 @@
 /*   By: lajen-li <lajen-li@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 16:35:30 by lajen-li          #+#    #+#             */
-/*   Updated: 2026/02/06 15:37:08 by lajen-li         ###   ########.fr       */
+/*   Updated: 2026/02/10 12:40:55 by lajen-li         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdarg.h>
 #include "ft_printf.h"
 
 int	ft_putnbr_int(int n)
@@ -42,7 +40,7 @@ int	ft_putnbr_unsi(unsigned int n)
 	int	count;
 
 	count = 0;
-	if (n  >= 10)
+	if (n >= 10)
 	{
 		count += ft_putnbr_unsi(n / 10);
 	}
@@ -63,7 +61,7 @@ int	ft_puthex_int(unsigned int n, char *base)
 	return (count);
 }
 
-int	ft_puthex_long(unsigned long n, char *base)
+int	ft_puthex_long(unsigned long long n, char *base)
 {
 	int	count;
 
