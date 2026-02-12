@@ -38,7 +38,7 @@ RECURSOS:
 
 	En resumen, la IA se ha utilizado como un tutor para entender la técnica, mientas que la lógica del código quedó bajo la responsabilidad de la autora.
 
-EXPLICAIÓN Y JUSTIFICACIÓN:
+EXPLICACIÓN Y JUSTIFICACIÓN:
 	Se ha implementado un algoritmo de realizando un parsing. El algoritmo recorre la cadena 'format' carácter a carácter. Si el carácter no es %, se envía directamente al buffer de salida.
 	Sin embargo, cuando se detecta un %, el algoritmo entra a una función que identifica al especificador de formato (c, s, p, d, i, u, x, X, %).
 

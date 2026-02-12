@@ -6,7 +6,7 @@
 /*   By: lajen-li <lajen-li@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 16:35:30 by lajen-li          #+#    #+#             */
-/*   Updated: 2026/02/10 12:40:55 by lajen-li         ###   ########.fr       */
+/*   Updated: 2026/02/12 12:26:48 by lajen-li         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_putnbr_unsi(unsigned int n)
 	return (count);
 }
 
-int	ft_puthex_int(unsigned int n, char *base)
+int	ft_puthex_int(unsigned long long n, char *base)
 {
 	int	count;
 
@@ -61,15 +61,16 @@ int	ft_puthex_int(unsigned int n, char *base)
 	return (count);
 }
 
-int	ft_puthex_long(unsigned long long n, char *base)
+int	ft_put_ptr(void *ptr, char *base)
 {
-	int	count;
+	int					count;
+	unsigned long long	n;
 
 	count = 0;
-	if (n >= 16)
-	{
-		count += ft_puthex_long(n / 16, base);
-	}
-	count += ft_putchar_int(base[n % 16]);
+	n = (unsigned long long)ptr;
+	if (ptr == 0)
+		return (ft_putstr_int("(nil)"));
+	count += ft_putstr_int("0x");
+	count += ft_puthex_int(n, base);
 	return (count);
 }

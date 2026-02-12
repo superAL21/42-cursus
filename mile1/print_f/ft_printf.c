@@ -6,11 +6,12 @@
 /*   By: lajen-li <lajen-li@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 11:58:26 by lajen-li          #+#    #+#             */
-/*   Updated: 2026/02/10 14:56:15 by lajen-li         ###   ########.fr       */
+/*   Updated: 2026/02/12 12:23:13 by lajen-li         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int	ft_printf(char const *format, ...)
 {
@@ -36,8 +37,6 @@ int	ft_printf(char const *format, ...)
 
 int	ft_check(char spec, va_list l_arg, int count)
 {
-	unsigned long long	ull;
-
 	if (spec == 'c')
 		count += ft_putchar_int(va_arg(l_arg, int));
 	else if (spec == 's')
@@ -51,13 +50,7 @@ int	ft_check(char spec, va_list l_arg, int count)
 	else if (spec == 'X')
 		count += ft_puthex_int(va_arg(l_arg, unsigned int), "0123456789ABCDEF");
 	else if (spec == 'p')
-	{
-		ull = va_arg(l_arg, unsigned long long);
-		if (ull == 0)
-			return (ft_putstr_int("(nil)"));
-		count += ft_putstr_int("0x");
-		count += ft_puthex_long(ull, "0123456789abcdef");
-	}
+		count += ft_put_ptr(va_arg(l_arg, void *), "0123456789abcdef");
 	else if (spec == '%')
 		count += ft_putchar_int('%');
 	return (count);
