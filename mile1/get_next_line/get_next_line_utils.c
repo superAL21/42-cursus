@@ -6,7 +6,7 @@
 /*   By: lajen-li <lajen-li@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 16:52:23 by lajen-li          #+#    #+#             */
-/*   Updated: 2026/02/13 11:52:44 by lajen-li         ###   ########.fr       */
+/*   Updated: 2026/02/17 16:29:29 by lajen-li         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 size_t	ft_strlen(const char *s)
 {
 	size_t	count;
-	
+
+	count = 0;
 	while(*s)
 	{
 		s++;
@@ -142,4 +143,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	sub[i] = '\0';
 	return (sub);
+}
+char	*ft_free_join(char const *s1, char const *s2)
+{
+	char	*temp;
+
+	if(!s1)
+		s1 = ft_strdup("");
+	temp = ft_strjoin(s1, s2);
+	free((void *)s1);
+	return (temp);
 }

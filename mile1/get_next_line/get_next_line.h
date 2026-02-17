@@ -6,7 +6,7 @@
 /*   By: lajen-li <lajen-li@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 16:38:47 by lajen-li          #+#    #+#             */
-/*   Updated: 2026/02/12 18:43:56 by lajen-li         ###   ########.fr       */
+/*   Updated: 2026/02/17 15:16:46 by lajen-li         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,16 @@
 # endif
 
 char	*get_next_line(int fd);
-char	*read_fill(int fd, char *buffer_saved);
-char	*get_line(char *buffer_saved);
-char	*buffer_act(char *buffer_saved);
+char	*ft_read_fill(int fd, char *buffer_saved);
+char	*ft_get_line(char *buffer_saved);
+char	*ft_buffer_act(char *buffer_saved);
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_free_join(char const *s1, char const *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
