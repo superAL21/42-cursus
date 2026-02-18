@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line _bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lajen-li <lajen-li@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 12:21:01 by lajen-li          #+#    #+#             */
-/*   Updated: 2026/02/18 12:27:50 by lajen-li         ###   ########.fr       */
+/*   Updated: 2026/02/18 13:36:20 by lajen-li         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer_saved;
+	static char	*buffer_saved[MAX_FD];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= MAX_FD)
 		return (NULL);
-	buffer_saved = ft_read_fill(fd, buffer_saved);
-	if (!buffer_saved)
-		buffer_saved = ft_strdup("");
-	line = ft_get_line(buffer_saved);
-	buffer_saved = ft_buffer_act(buffer_saved);
+	buffer_saved[fd] = ft_read_fill(fd, buffer_saved[fd]);
+	if (!buffer_saved[fd])
+		buffer_saved[fd] = ft_strdup("");
+	line = ft_get_line(buffer_saved[fd]);
+	buffer_saved[fd] = ft_buffer_act(buffer_saved[fd]);
 	return (line);
 }
 

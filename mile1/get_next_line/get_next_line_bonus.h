@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lajen-li <lajen-li@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 16:38:47 by lajen-li          #+#    #+#             */
-/*   Updated: 2026/02/18 12:35:23 by lajen-li         ###   ########.fr       */
+/*   Updated: 2026/02/18 13:19:35 by lajen-li         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -21,6 +21,8 @@
 # ifndef BUFFER_SIZE
 # define BUFFER_SIZE 42
 # endif
+
+# define MAX_FD 10240
 
 char	*get_next_line(int fd);
 char	*ft_read_fill(int fd, char *buffer_saved);

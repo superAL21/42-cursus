@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lajen-li <lajen-li@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/17 17:10:04 by lajen-li          #+#    #+#             */
-/*   Updated: 2026/02/18 12:42:28 by lajen-li         ###   ########.fr       */
+/*   Created: 2026/02/18 13:23:30 by lajen-li          #+#    #+#             */
+/*   Updated: 2026/02/18 15:25:39 by lajen-li         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	main(void)
 {
-	char	*texto;
 	int		fd;
-	int		i;
+	int		fd2;
+	int		fd3;
 
 	fd = open ("quixote.txt", O_RDONLY);
 	if (fd == -1)
@@ -24,15 +24,23 @@ int	main(void)
 		printf("Error al abrir el archivo");
 		return (1);
 	}
-	i = 0;
-	texto = get_next_line(fd);
-	while (texto != NULL)
+	fd2  = open ("arch.txt", O_RDONLY);
+	if (fd == -1)
 	{
-		printf("line %d, %s", i, texto);
-		i++;
-		free(texto);
-		texto = get_next_line(fd);
+		printf("Error al abrir el archivo");
+		return (1);
 	}
+	fd3  = open ("bent.txt", O_RDONLY);
+	if (fd == -1)
+	{
+		printf("Error al abrir el archivo");
+		return (1);
+	}
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd2));
+	printf("%s", get_next_line(fd3));
 	close(fd);
+	close(fd2);
+	close(fd3);
 	return (0);
 }
