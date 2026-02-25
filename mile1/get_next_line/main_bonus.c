@@ -6,7 +6,7 @@
 /*   By: lajen-li <lajen-li@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 13:23:30 by lajen-li          #+#    #+#             */
-/*   Updated: 2026/02/18 15:25:39 by lajen-li         ###   ########.fr       */
+/*   Updated: 2026/02/19 13:29:37 by lajen-li         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int	main(void)
 		printf("Error al abrir el archivo");
 		return (1);
 	}
-	fd2  = open ("arch.txt", O_RDONLY);
+	fd2 = open ("arch.txt", O_RDONLY);
 	if (fd == -1)
 	{
 		printf("Error al abrir el archivo");
 		return (1);
 	}
-	fd3  = open ("bent.txt", O_RDONLY);
+	fd3 = open ("bent.txt", O_RDONLY);
 	if (fd == -1)
 	{
 		printf("Error al abrir el archivo");

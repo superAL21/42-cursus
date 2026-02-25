@@ -6,7 +6,7 @@
 /*   By: lajen-li <lajen-li@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 16:38:47 by lajen-li          #+#    #+#             */
-/*   Updated: 2026/02/18 12:35:23 by lajen-li         ###   ########.fr       */
+/*   Updated: 2026/02/19 16:38:47 by lajen-li         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdio.h>
 
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
+#  define BUFFER_SIZE 42
 # endif
 
 char	*get_next_line(int fd);

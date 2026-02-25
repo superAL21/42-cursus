@@ -6,7 +6,7 @@
 /*   By: lajen-li <lajen-li@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 12:21:01 by lajen-li          #+#    #+#             */
-/*   Updated: 2026/02/18 12:27:50 by lajen-li         ###   ########.fr       */
+/*   Updated: 2026/02/20 12:10:29 by lajen-li         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_read_fill(int fd, char *buffer_saved)
 	char	*temp_buffer;
 	ssize_t	bytes_read;
 	char	*temp_ptr;
-	
+
 	if (!buffer_saved)
 		buffer_saved = ft_strdup("");
 	if (!buffer_saved)
@@ -86,14 +86,14 @@ char	*ft_buffer_act(char *buffer_saved)
 	if (!buffer_saved)
 		return (NULL);
 	i = 0;
-	while (buffer_saved[i] && buffer_saved[i] != '\n')
+	while (buffer_saved[i] != '\0' && buffer_saved[i] != '\n')
 		i++;
 	if (!buffer_saved[i])
 	{
 		free(buffer_saved);
 		return (NULL);
 	}
-	temp = ft_substr(buffer_saved, i + 1, (ft_strlen(buffer_saved) - i -1));
+	temp = ft_substr(buffer_saved, i + 1, (ft_strlen(buffer_saved) - i - 1));
 	free(buffer_saved);
 	if (temp && *temp == '\0')
 		return (free(temp), NULL);
