@@ -5,30 +5,29 @@ class Plant:
         self.name: str = name.capitalize()
         self._height: float = 0.0
         self._age: int = 0
-        
+
         self.set_height(height)
         self.set_age(age)
 
     def set_height(self, value: float) -> None:
-            if value < 0:
-                print (f"{self.name}: Error, height can't be negative"
-                "\nHeight update rejected")
-            else:
-                self._height = value
+        if value < 0:
+            print(f"{self.name}: Error, height can't be negative"
+                  f"\nHeight update rejected")
+        else:
+            self._height = value
 
     def get_height(self) -> float:
         return self._height
-    
+
     def set_age(self, value: int) -> None:
         if value < 0:
             print(f"{self.name}: Error, age can't be negative"
-            f"Age update rejected")
+                  f"\nAge update rejected")
         else:
             self._age = value
 
     def get_age(self) -> int:
         return self._age
-    
 
     def show(self, prefix: str = "") -> None:
         p = f"{prefix}: " if prefix else ""
@@ -38,16 +37,16 @@ class Plant:
 
     def grow(self, large: float) -> None:
         if large < 0:
-                print (f"{self.name}: Error, height can't be negative"
-                "\nHeight update rejected")
+            print(f"{self.name}: Error, height can't be negative"
+                  f"\nHeight update rejected")
         else:
             self.set_height(round(self._height + large, 1))
             print(f"Height update: {self._height}cm")
 
     def age(self, days: int) -> None:
         if days < 0:
-                print (f"{self.name}: Error, age can't be negative"
-                "\nAge update rejected")
+            print(f"{self.name}: Error, age can't be negative"
+                  f"\nAge update rejected")
         else:
             self.set_age(self._age + days)
             print(f"Age update: {self._age} days")
@@ -64,5 +63,4 @@ if __name__ == "__main__":
     plant.grow(-11)
     plant.age(-12)
     print("")
-    plant.show("Current status")
-
+    plant.show("Current state")

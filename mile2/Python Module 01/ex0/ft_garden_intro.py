@@ -1,14 +1,12 @@
-#!/usr/bin/env python3
-
 def ft_garden_intro() -> None:
-    name: str = input("Plant: ")
-    height: int = int(input("Height: "))
-    age: int = int(input("Age: "))
-    print("=== Welcome to My Garden ===")
-    print(f"Plant: {name.capitalize()}")
-    print(f"Height: {height}cm")
-    print(f"Age: {age} days\n")
-    print("=== End of program ===")
+    name: str = "rose"
+    height: int = 25
+    age: int = 30
+    print(f"=== Welcome to My Garden ===\n"
+          f"Plant: {name.capitalize()}\n"
+          f"Height: {height}cm\n"
+          f"Age: {age} days\n"
+          f"\n=== End of program ===")
 
 
 if __name__ == "__main__":
