@@ -9,7 +9,7 @@ def gen_player_achievements() -> set:
                     'Treasure Hunter', 'Unstoppable', 'First Steps',
                     'Collector Supreme', 'Untouchable', 'Sharp Mind',
                     'Boss Slayer']
-    number_rand = random.randint(6, len(achievements))
+    number_rand = random.randint(4, len(achievements))
     player = random.sample(achievements, k=number_rand)
     return set(player)
 

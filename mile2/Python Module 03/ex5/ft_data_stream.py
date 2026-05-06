@@ -6,8 +6,8 @@ import random
 
 def gen_event() -> Generator[tuple]:
     list_of_players = ["Alice", "Bob", "Charlie", "Dylan"]
-    actions = ["run", "eat", "sleep", "grab", "move", "climb",
-               "swim"]
+    actions = ["run", "eat", "sleep", "grab",
+               "move", "climb", "swim"]
 
     while True:
         player = random.choice(list_of_players)
@@ -27,12 +27,16 @@ if __name__ == "__main__":
     for i in range(0, 1000):
         player, action = next(my_game)
         print(f"Event {i}: Player {player} did action {action}")
+
     generator_ten_events = gen_event()
-    list_ten_events = []
-    for element in range(10):
+
+    list_ten_events: list[tuple] = []
+
+    for i in range(10):
         element = next(generator_ten_events)
         list_ten_events.append(element)
     print(f"Built list of 10 events: {list_ten_events}")
+
     consume = consume_event(list_ten_events)
 
     while True:

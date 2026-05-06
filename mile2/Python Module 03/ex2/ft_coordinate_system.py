@@ -6,15 +6,16 @@ import math
 def get_player_pos() -> tuple[float, float, float]:
     entry = input("Enter new coordinates as floats in format 'x,y,z': ")
     coordinates = entry.split(",")
+
     if len(coordinates) != 3:
         print("Invalid syntax")
         return get_player_pos()
 
-    list1 = []
+    coords_list = []
     for number in coordinates:
         try:
             value = float(number.strip())
-            list1.append(value)
+            coords_list.append(value)
         except ValueError as error:
             for num in coordinates:
                 try:
@@ -22,8 +23,8 @@ def get_player_pos() -> tuple[float, float, float]:
                 except ValueError:
                     print(f"Error on parameter '{num.strip()}': {error}")
             return get_player_pos()
-    final_coords = (list1[0], list1[1], list1[2])
-    return final_coords
+    x, y, z = coords_list
+    return (x, y, z)
 
 
 def main() -> None:
