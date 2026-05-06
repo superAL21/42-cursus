@@ -2,26 +2,22 @@
 
 void	ft_inter(char *s1, char *s2)
 {
-	int	j;
-	int	i;
-	int	used[256] = {0};
+	char	abc[256] = {0};
+	int		i;
 
+	i = 0;
+	while(s2[i] != '\0')
+	{
+		abc[(int)s2[i]] = 1;
+		i++;
+	}
 	i = 0;
 	while(s1[i] != '\0')
 	{
-		j = 0;
-		if(used[(unsigned char)s1[i]] == 0)
+		if(abc[(int)s1[i]] == 1)
 		{
-			while(s2[j] != '\0')
-			{
-				if(s1[i] == s2[j])
-				{
-					write(1, &s1[i], 1);
-					used[(unsigned char)s1[i]] = 1;
-					break;
-				}
-				j++;
-			}
+			write(1, &s1[i], 1);
+			abc[(int)s1[i]] = 2;
 		}
 		i++;
 	}

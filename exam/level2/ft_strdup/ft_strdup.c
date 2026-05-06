@@ -1,36 +1,27 @@
-#include <unistd.h>
 #include <stdlib.h>
 
 int	ft_strlen(char *str)
 {
 	int	i;
-	int	count;
 
 	i = 0;
-	while(str[i])
-	{
-		count++;
+	while(str[i] != '\0')
+
 		i++;
-	}
-	return (count);
+	return(i);
 }
-
-char	*ft_strdup(char *src)
+char *ft_strdup(char *src)
 {
-	char	*dup;
-	int		len;
+	char	*new;
 	int		i;
-
-	len = ft_strlen(src);
-	dup = malloc(len * sizeof(char));
-	if(!dup)
-		return(NULL);
+	
 	i = 0;
+	new = malloc((sizeof(char) * ft_strlen(src)) + 1);
 	while(src[i] != '\0')
 	{
-		dup[i] = src[i];
+		new[i] = src[i];
 		i++;
 	}
-	dup[i] = '\0'; 
-	return(dup);
+	new[i] = '\0';
+	return(new);
 }
