@@ -1,0 +1,3 @@
+#!/bin/bash
+source .venv/bin/activate
+.venv/bin/python a_maze_ing.py "$@"
