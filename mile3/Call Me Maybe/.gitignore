@@ -1,0 +1,34 @@
+# Python cache/bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Tool caches
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build/dist
+build/
+dist/
+*.egg-info/
+
+# Project output (no subir resultados generados)
+data/output/
+
+# Optional logs/temp files
+*.log
+*.tmp
