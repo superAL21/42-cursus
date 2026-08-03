@@ -1,6 +1,9 @@
 import argparse
 import json
 from .utils.io_utils import load_json, save_json
+from typing import Any
+from llm_sdk.llm_sdk import Small_LLM_Model
+
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
@@ -9,7 +12,7 @@ def build_parser() -> argparse.ArgumentParser:
         type=str,
         default="data/input/function_calling_tests.json",
         help="Path to input prompts file",
-    ) 
+    )
 
     parser.add_argument(
         "--output",
@@ -26,19 +29,34 @@ def build_parser() -> argparse.ArgumentParser:
     )
     return parser
 
-def process_prompts(input_data, functions_def) -> dict:
-    try:
-        if not isinstance(input_data, list):
-            raise TypeError("input data must be a list")
-        if not isinstance(functions_def, list):
-            raise TypeError("functions_def must be a list")
-    except:
-        return "EXIT"
-    results = []
+
+def process_prompts(
+    input_data: Any,
+    functions_def: Any,
+    model: Small_LLM_Model) -> list[dict[str, Any]]:
+    if not isinstance(input_data, list):
+        raise TypeError("input data must be a list")
+    if not isinstance(functions_def, list):
+        raise TypeError("functions_def must be a list")
+
+    results: list[dict[str, Any]] = []
     for item in input_data:
-        data_processed = functions_def(item)
-        results.append(data_processed)
-    return {"results": results}
+        prompt = item["prompt"]
+        try:
+            tool_call = response["tool_call"]
+            results.append({
+                "prompt": item["prompt"],
+                "name": tool_call["name"],
+                "parameters": tool_call["parameters"],
+            })
+        except Exception:
+            results.append({
+                "prompt": prompt,
+                "name": "error",
+                "parameters": {}
+            })
+    return results
+
 
 def main() -> None:
     parser = build_parser()
@@ -46,23 +64,17 @@ def main() -> None:
     try:
         input_data = load_json(args.input)
         functions_def = load_json(args.functions_definition)
+        model = Small_LLM_Model()
+        result = process_prompts(input_data, functions_def, model)
 
-        result = {
-        "ok": True,
-        "input_type": type(input_data).__name__,
-        "functions_type": type(functions_def).__name__,
-        }
-        
         save_json(args.output, result)
-
+        print(result[:1], flush=True)
     except FileNotFoundError as e:
         print(f"File not found: {e.filename}")
     except json.JSONDecodeError as e:
         print(f"Invalid JSON in {e.doc}: line {e.lineno}, column {e.colno}")
     except OSError as e:
         print(f"I/O error: {e}")
-
-
 
 
 if __name__ == "__main__":
